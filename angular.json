@@ -1,13 +1,40 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "b25efadf-0706-45ad-8ad9-fa429e1229de"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "kleemannschulen-quiz": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        },
+        "@schematics/angular:resolver": {
+          "skipTests": true
         }
       },
       "root": "",
