@@ -1,12 +1,31 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { OverviewComponent } from 'src/app/overview/overview.component';
+import { LayoutComponent } from 'src/app/layout/layout.component';
 
+const routes: Routes = [
+  {
+    path: 'overview',
+    component: OverviewComponent
+  }
+];
 
+const topRoutes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'overview'
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: routes
+  }
+];
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  imports: [RouterModule.forRoot(topRoutes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
