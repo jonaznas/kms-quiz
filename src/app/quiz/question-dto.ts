@@ -1,7 +1,7 @@
-import { answerDto } from 'src/app/quiz/answer-dto';
+import { AnswerDto } from 'src/app/quiz/answer-dto';
 
-export type questionDto = {
+export type QuestionDto = {
   id: number;
   question: string;
-  answers: answerDto[];
+  answers: AnswerDto[];
 };

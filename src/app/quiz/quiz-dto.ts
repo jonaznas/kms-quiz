@@ -1,5 +1,7 @@
-import { questionDto } from 'src/app/quiz/question-dto';
+import { QuestionDto } from 'src/app/quiz/question-dto';
 
-export type quizDto = {
-  questions: questionDto[];
+export type QuizDto = {
+  id: number;
+  room: string;
+  questions: QuestionDto[];
 }
