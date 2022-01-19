@@ -1,5 +1,21 @@
-<div class="max-w-md mx-auto bg-white rounded-xl border-2 border-gray shadow-md overflow-hidden md:max-w-2xl">
-  <div class="p-8">
+<div class="py-5">
+  <h3 class="text-lg leading-6 font-medium text-gray-900">
+    Übersicht
+  </h3>
+  <p class="mt-1 max-w-2xl text-sm text-gray-500">
+    Hier siehst du den Fortschritt deiner Quizzes
+  </p>
+</div>
 
-  </div>
+<div class="flex flex-col">
+  <app-overview-quiz-card
+    [title]="'Hier könnte ein Quiztitel stehen'"
+    [roomNumber]="107"
+    [progress]="80"
+  ></app-overview-quiz-card>
+  <app-overview-quiz-card
+    [title]="'Hier könnte ein Quiztitel stehen'"
+    [roomNumber]="106"
+    [progress]="20"
+  ></app-overview-quiz-card>
 </div>
