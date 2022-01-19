@@ -1,1 +1,13 @@
-<p>quiz-question works!</p>
+<div class="my-5">{{ question.question }}</div>
+
+<ul *ngFor="let a of question.answers"
+    role="list"
+    class="border border-gray-200 rounded-md divide-y divide-gray-200">
+  <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
+    <div class="w-0 flex-1 flex items-center">
+      <span class="ml-2 flex-1 w-0 truncate">
+        {{ a.answer }}
+      </span>
+    </div>
+  </li>
+</ul>

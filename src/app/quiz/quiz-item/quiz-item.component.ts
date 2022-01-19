@@ -9,11 +9,13 @@ import { QuizDto } from 'src/app/quiz/quiz-dto';
 })
 export class QuizItemComponent implements OnInit {
   quiz: QuizDto;
+  questionIndex: number;
 
   constructor(
     private route: ActivatedRoute
   ) {
     this.quiz = this.route.snapshot.data.quiz;
+    this.questionIndex = 0;
   }
 
   ngOnInit(): void {

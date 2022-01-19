@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from 'src/app/layout/layout.module';
 import { HttpClientModule } from '@angular/common/http';
+import { QuizModule } from 'src/app/quiz/quiz.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
+    QuizModule,
     HttpClientModule
   ],
   providers: [],

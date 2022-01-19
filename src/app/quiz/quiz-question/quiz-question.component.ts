@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { QuestionDto } from 'src/app/quiz/question-dto';
 
 @Component({
   selector: 'app-quiz-question',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizQuestionComponent implements OnInit {
 
+  @Input() question: QuestionDto;
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.question);
   }
 
 }

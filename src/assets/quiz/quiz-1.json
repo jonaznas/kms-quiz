@@ -13,8 +13,24 @@
         },
         {
           "id": 2,
-          "answer": "Paris",
+          "answer": "London",
           "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "What is the capital of Germany?",
+      "answers": [
+        {
+          "id": 1,
+          "answer": "London",
+          "isCorrect": false
+        },
+        {
+          "id": 2,
+          "answer": "Berlin",
+          "isCorrect": true
         }
       ]
     }
