@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from 'src/app/layout/layout.module';
 import { HttpClientModule } from '@angular/common/http';
 import { QuizModule } from 'src/app/quiz/quiz.module';
+import { OverviewModule } from 'src/app/overview/overview.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { QuizModule } from 'src/app/quiz/quiz.module';
     AppRoutingModule,
     LayoutModule,
     QuizModule,
+    OverviewModule,
     HttpClientModule
   ],
   providers: [],
