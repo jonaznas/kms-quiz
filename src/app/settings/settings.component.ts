@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuizService } from 'src/app/quiz/quiz.service';
 
 @Component({
   selector: 'app-settings',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private quizService: QuizService
+  ) { }
 
   ngOnInit(): void {
   }
 
+  deleteAllData(): void {
+    this.quizService.deleteStorageData();
+  }
 }
