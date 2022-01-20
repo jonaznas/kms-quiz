@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { QuizDto } from 'src/app/quiz/quiz-dto';
-import { Observable } from 'rxjs';
-import { AnswerDto } from 'src/app/quiz/answer-dto';
+import { Observable, of } from 'rxjs';
 import { QuestionAnsweredDto } from 'src/app/quiz/question-answered-dto';
 import { QuestionDto } from 'src/app/quiz/question-dto';
 
@@ -10,14 +9,22 @@ import { QuestionDto } from 'src/app/quiz/question-dto';
   providedIn: 'root'
 })
 export class QuizService {
-
   constructor(
     private http: HttpClient
   ) {
   }
 
-  getQuiz(id: number): Observable<QuizDto> {
-    return this.http.get<QuizDto>(`/assets/quiz/quiz-${ id }.json`);
+  requestQuizData(): Observable<QuizDto[]> {
+    return this.http.get<QuizDto[]>(`/assets/quiz-data.json`);
+  }
+
+  getQuiz(id: number, quizData: QuizDto[]): Observable<QuizDto> {
+    const quiz = quizData.find(q => q.id == id);
+    if (quiz) {
+      return of(quiz);
+    } else {
+      throw new Error('Quiz not found');
+    }
   }
 
   addAnswerToStorage(quiz: QuizDto, question: QuestionDto) {

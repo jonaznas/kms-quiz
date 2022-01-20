@@ -5,6 +5,7 @@ import { LayoutComponent } from 'src/app/layout/layout.component';
 import { QuizResolver } from 'src/app/quiz/quiz.resolver';
 import { QuizItemComponent } from 'src/app/quiz/quiz-item/quiz-item.component';
 import { SettingsComponent } from 'src/app/settings/settings.component';
+import { QuizDataResolver } from 'src/app/quiz/quiz-data.resolver';
 
 const routes: Routes = [
   {
@@ -33,7 +34,10 @@ const topRoutes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    children: routes
+    children: routes,
+    resolve: {
+      quizData: QuizDataResolver
+    }
   }
 ];
 
