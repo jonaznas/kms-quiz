@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { QuizDto } from 'src/app/quiz/quiz-dto';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-overview',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./overview.component.scss']
 })
 export class OverviewComponent implements OnInit {
+  quizzes: QuizDto[];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(
+    private route: ActivatedRoute
+  ) {
+    this.quizzes = [];
   }
 
+  ngOnInit(): void {
+    this.quizzes = this.route.parent?.snapshot.data.quizData;
+  }
 }

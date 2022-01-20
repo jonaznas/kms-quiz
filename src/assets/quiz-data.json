@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "room": 107,
-    "title": "Quiz 1",
+    "roomNumber": 107,
+    "title": "Hier könnte ein Titel stehen",
     "questions": [
       {
         "id": 1,
@@ -56,8 +56,8 @@
   },
   {
     "id": 2,
-    "room": 106,
-    "title": "Quiz 2",
+    "roomNumber": 106,
+    "title": "Hier könnte ein Titel stehen",
     "questions": [
       {
         "id": 1,

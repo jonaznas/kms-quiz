@@ -1,15 +1,15 @@
 <div class="shadow-lg rounded-xl p-4 mb-4 bg-white relative overflow-hidden">
   <div class="w-full">
     <p class="text-gray-800 text-xl font-medium mb-2">
-      {{ title }}
+      {{ quiz.title }}
     </p>
     <p class="text-kms-blue text-xs font-medium mb-2">
-      Raum {{ roomNumber }}
+      Raum {{ quiz.roomNumber }}
     </p>
   </div>
   <div class="flex items-center justify-between my-2">
     <p class="text-gray-300 text-sm">
-      4/6 Fragen beantwortet
+      {{ answeredQuestions }}/{{ quiz.questions.length }} Fragen beantwortet
     </p>
   </div>
   <div class="w-full h-2 bg-gray-200 rounded-full">

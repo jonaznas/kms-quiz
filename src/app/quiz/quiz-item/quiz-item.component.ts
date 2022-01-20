@@ -33,7 +33,10 @@ export class QuizItemComponent implements OnInit {
     const quizData = this.quizService.getStorageData();
 
     this.questions = this.questions.filter(question => {
-      return !quizData.find(data => data.questionId === question.id);
+      return !quizData.find(data =>
+        data.questionId === question.id
+        && data.quizId === this.quiz.id
+      );
     });
 
     this.updateProgress();

@@ -8,14 +8,5 @@
 </div>
 
 <div class="flex flex-col">
-  <app-overview-quiz-card
-    [title]="'Hier könnte ein Quiztitel stehen'"
-    [roomNumber]="107"
-    [progress]="80"
-  ></app-overview-quiz-card>
-  <app-overview-quiz-card
-    [title]="'Hier könnte ein Quiztitel stehen'"
-    [roomNumber]="106"
-    [progress]="20"
-  ></app-overview-quiz-card>
+  <app-overview-quiz-card *ngFor="let quiz of quizzes" [quiz]="quiz"></app-overview-quiz-card>
 </div>
