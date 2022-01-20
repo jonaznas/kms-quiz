@@ -10,7 +10,13 @@ module.exports = {
     },
     darkMode: false, // or 'media' or 'class'
     theme: {
-      extend: {},
+      extend: {
+        colors: {
+          'kms-blue': '#4b5f8f',
+          'kms-lightblue': '#6dc1d6',
+          'kms-gray': '#474747'
+        }
+      }
     },
     variants: {
       extend: {},
