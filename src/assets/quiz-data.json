@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "roomNumber": 107,
+    "title": "Hier könnte ein Titel stehen",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Was ist die Hauptstadt von Deutschland?",
+        "answers": [
+          {
+            "id": 1,
+            "answer": "Berlin",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "London",
+            "isCorrect": false
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "question": "Was ist die Hauptstadt von Frankreich?",
+        "answers": [
+          {
+            "id": 1,
+            "answer": "London",
+            "isCorrect": false
+          },
+          {
+            "id": 2,
+            "answer": "Paris",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "question": "Was ist die Hauptstadt von Italien?",
+        "answers": [
+          {
+            "id": 1,
+            "answer": "London",
+            "isCorrect": false
+          },
+          {
+            "id": 2,
+            "answer": "Rom",
+            "isCorrect": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "roomNumber": 106,
+    "title": "Hier könnte ein Titel stehen",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Erste Frage",
+        "answers": [
+          {
+            "id": 1,
+            "answer": "Erste Antwort",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "Zweite Antwort",
+            "isCorrect": false
+          }
+        ]
+      }
+    ]
+  }
+]

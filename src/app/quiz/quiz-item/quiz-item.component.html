@@ -1,7 +1,22 @@
-<div class="bg-white shadow overflow-hidden rounded-lg">
-  <div class="px-4 py-5 sm:px-6">
+<div class="px-4 py-5 sm:px-6 overflow-hidden">
 
-    <app-quiz-question [question]="quiz.questions[questionIndex]"></app-quiz-question>
-
+  <div class="text-kms-blue text-xs font-medium mb-2 flex place-content-between">
+    <p>Raum {{ quiz.roomNumber }}</p>
+    <p>{{ currentQuestion }}/{{ quiz.questions.length }}</p>
   </div>
+  <div class="w-full h-2 bg-gray-200 rounded-full">
+    <div [style]="{width: progress + '%'}" class="text-center h-full text-xs text-white bg-kms-blue rounded-full"></div>
+  </div>
+
+  <app-quiz-question
+    *ngIf="quiz.questions.length > currentQuestion; else quizSuccess"
+    [question]="questions[0]"
+    [quiz]="quiz"
+    (answerSelected)="nextQuestion()"
+  ></app-quiz-question>
+
+  <ng-template #quizSuccess>
+    <app-quiz-success></app-quiz-success>
+  </ng-template>
+
 </div>

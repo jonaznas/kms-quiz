@@ -2,6 +2,7 @@ import { QuestionDto } from 'src/app/quiz/question-dto';
 
 export type QuizDto = {
   id: number;
-  room: string;
+  roomNumber: number;
+  title: string;
   questions: QuestionDto[];
 }
