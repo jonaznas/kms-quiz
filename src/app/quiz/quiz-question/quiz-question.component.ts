@@ -11,6 +11,8 @@ import {
 } from '@angular/core';
 import { QuestionDto } from 'src/app/quiz/question-dto';
 import { AnswerDto } from 'src/app/quiz/answer-dto';
+import { QuizService } from 'src/app/quiz/quiz.service';
+import { QuizDto } from 'src/app/quiz/quiz-dto';
 
 @Component({
   selector: 'app-quiz-question',
@@ -20,12 +22,15 @@ import { AnswerDto } from 'src/app/quiz/answer-dto';
 export class QuizQuestionComponent implements OnInit, OnChanges {
 
   @Input() question: QuestionDto;
+  @Input() quiz: QuizDto;
 
   @Output() answerSelected = new EventEmitter<AnswerDto>();
 
   @ViewChild('questionElement') questionElement: ElementRef;
 
-  constructor() {
+  constructor(
+    private quizService: QuizService
+  ) {
   }
 
   ngOnInit(): void {
@@ -47,6 +52,7 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
     const target = e.target as HTMLButtonElement;
 
     if (answer.isCorrect) {
+      this.quizService.addAnswerToStorage(this.quiz, this.question);
       this.questionElement.nativeElement.classList.add('slide-out-left');
       setTimeout(() => this.answerSelected.emit(answer), 350);
     } else {
