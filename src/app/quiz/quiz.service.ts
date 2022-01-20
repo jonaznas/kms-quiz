@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { QuizDto } from 'src/app/quiz/quiz-dto';
 import { Observable } from 'rxjs';
+import { AnswerDto } from 'src/app/quiz/answer-dto';
+import { QuestionAnsweredDto } from 'src/app/quiz/question-answered-dto';
+import { QuestionDto } from 'src/app/quiz/question-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +18,34 @@ export class QuizService {
 
   getQuiz(id: number): Observable<QuizDto> {
     return this.http.get<QuizDto>(`/assets/quiz/quiz-${ id }.json`);
+  }
+
+  addAnswerToStorage(quiz: QuizDto, question: QuestionDto) {
+    const storageData = this.getStorageData();
+    const questionAnswered: QuestionAnsweredDto = {
+      quizId: quiz.id,
+      questionId: question.id
+    };
+
+    const existingAnsweredQuestion = storageData.find(s => s.questionId === question.id && s.quizId === quiz.id);
+
+    if (!existingAnsweredQuestion) {
+      storageData.push(questionAnswered);
+      localStorage.setItem('answers', JSON.stringify(storageData));
+    }
+  }
+
+  getStorageData(): QuestionAnsweredDto[] {
+    const answers = localStorage.getItem('answers');
+
+    if (answers) {
+      return JSON.parse(answers);
+    } else {
+      return [];
+    }
+  }
+
+  deleteStorageData(): void {
+    localStorage.removeItem('answers');
   }
 }
