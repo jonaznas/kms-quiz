@@ -6,6 +6,7 @@ import { QuizResolver } from 'src/app/quiz/quiz.resolver';
 import { QuizItemComponent } from 'src/app/quiz/quiz-item/quiz-item.component';
 import { SettingsComponent } from 'src/app/settings/settings.component';
 import { QuizDataResolver } from 'src/app/quiz/quiz-data.resolver';
+import { QrCodeComponent } from 'src/app/qr-code/qr-code.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
     resolve: {
       quiz: QuizResolver
     }
+  },
+  {
+    path: 'qr-code',
+    component: QrCodeComponent
   }
 ];
 

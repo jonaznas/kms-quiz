@@ -1,0 +1,13 @@
+<div #qrCodePage>
+  <div class="py-5">
+    <h3 class="text-lg leading-6 font-medium text-gray-900">
+      QR-Code Scannen
+    </h3>
+    <p class="mt-1 max-w-2xl text-sm text-gray-500">
+      Falls du Probleme hast mit deiner Kamera-App den QR-Code zu scannen, kannst du es auch über diese Seite machen.
+    </p>
+  </div>
+
+  <app-qr-code-scan (qrCodeScanned)="goToQuiz($event)"></app-qr-code-scan>
+</div>
+

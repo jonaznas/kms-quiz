@@ -1,10 +1,10 @@
 <div class="px-4 py-5 sm:px-6 overflow-hidden">
 
-  <div class="text-kms-blue text-xs font-medium mb-2 flex place-content-between">
+  <div class="text-kms-blue text-xs font-medium mb-2 flex place-content-between slide-in-blurred-top">
     <p>Raum {{ quiz.roomNumber }}</p>
     <p>{{ currentQuestion }}/{{ quiz.questions.length }}</p>
   </div>
-  <div class="w-full h-2 bg-gray-200 rounded-full">
+  <div class="w-full h-2 bg-gray-200 rounded-full slide-in-blurred-top">
     <div [style]="{width: progress + '%'}" class="text-center h-full text-xs text-white bg-kms-blue rounded-full"></div>
   </div>
 

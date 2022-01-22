@@ -7,6 +7,7 @@ import { LayoutModule } from 'src/app/layout/layout.module';
 import { HttpClientModule } from '@angular/common/http';
 import { QuizModule } from 'src/app/quiz/quiz.module';
 import { OverviewModule } from 'src/app/overview/overview.module';
+import { QrCodeModule } from 'src/app/qr-code/qr-code.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { OverviewModule } from 'src/app/overview/overview.module';
     LayoutModule,
     QuizModule,
     OverviewModule,
-    HttpClientModule
+    HttpClientModule,
+    QrCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

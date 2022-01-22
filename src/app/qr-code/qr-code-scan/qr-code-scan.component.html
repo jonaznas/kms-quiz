@@ -1,0 +1,14 @@
+<div #cameraContainer class="shadow-lg rounded-xl bg-white relative overflow-hidden hidden">
+  <zxing-scanner
+    *ngIf="showCamera"
+    (scanSuccess)="scanSuccess($event)"
+    (permissionResponse)="permissionResponse($event)"
+    (camerasNotFound)="cameraNotFound()"
+    [delayBetweenScanSuccess]="3000"
+    [formats]="allowedFormats"
+  ></zxing-scanner>
+</div>
+
+<ng-template #errorTemplate>
+  <div class="bg-red-100 rounded-lg p-4 text-sm text-red-700">{{ errorMessage }}</div>
+</ng-template>
