@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { TablerIconsModule } from 'angular-tabler-icons';
-import { IconAdjustments, IconHome } from 'angular-tabler-icons/icons';
+import { IconAdjustments, IconCamera, IconHome } from 'angular-tabler-icons/icons';
 
 const icons = {
   IconHome,
-  IconAdjustments
+  IconAdjustments,
+  IconCamera
 };
 
 @NgModule({
