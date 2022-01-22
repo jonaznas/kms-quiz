@@ -38,12 +38,12 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.question && this.questionElement) {
-      this.questionElement.nativeElement.classList.remove('slide-in-right');
-      this.questionElement.nativeElement.classList.add('slide-out-left');
+      this.questionElement.nativeElement.classList.remove('slide-in-blurred-top');
+      this.questionElement.nativeElement.classList.add('slide-out-blurred-left');
 
       setTimeout(() => {
-        this.questionElement.nativeElement.classList.remove('slide-out-left');
-        this.questionElement.nativeElement.classList.add('slide-in-right');
+        this.questionElement.nativeElement.classList.remove('slide-out-blurred-left');
+        this.questionElement.nativeElement.classList.add('slide-in-blurred-top');
       }, 350);
     }
   }
@@ -53,7 +53,7 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
 
     if (answer.isCorrect) {
       this.quizService.addAnswerToStorage(this.quiz, this.question);
-      this.questionElement.nativeElement.classList.add('slide-out-left');
+      this.questionElement.nativeElement.classList.add('slide-out-blurred-left');
       setTimeout(() => this.answerSelected.emit(answer), 350);
     } else {
       target.classList.add('border-2', 'border-red-500', 'shake-horizontal');
