@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-qr-code',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QrCodeComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('qrCodePage') qrCodePageElementRef: ElementRef;
+
+  constructor(
+    private router: Router
+  ) {
+  }
 
   ngOnInit(): void {
   }
 
+  async goToQuiz(url: string) {
+    if (!url.includes('/quiz/')) {
+      console.error('Invalid QR Code URL');
+    }
+
+    const quizId = url.split('/quiz/').pop();
+    await this.playExitAnimation();
+    await this.router.navigate(['/quiz', quizId]);
+  }
+
+  async playExitAnimation() {
+    this.qrCodePageElementRef.nativeElement.classList.add('slide-out-blurred-bottom');
+    await new Promise(resolve => setTimeout(resolve, 450));
+  }
 }
