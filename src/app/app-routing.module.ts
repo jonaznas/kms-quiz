@@ -6,7 +6,7 @@ import { QuizResolver } from 'src/app/quiz/quiz.resolver';
 import { QuizItemComponent } from 'src/app/quiz/quiz-item/quiz-item.component';
 import { SettingsComponent } from 'src/app/settings/settings.component';
 import { QuizDataResolver } from 'src/app/quiz/quiz-data.resolver';
-import { CameraComponent } from 'src/app/camera/camera.component';
+import { QrCodeComponent } from 'src/app/qr-code/qr-code.component';
 
 const routes: Routes = [
   {
@@ -25,8 +25,8 @@ const routes: Routes = [
     }
   },
   {
-    path: 'camera',
-    component: CameraComponent
+    path: 'qr-code',
+    component: QrCodeComponent
   }
 ];
 
