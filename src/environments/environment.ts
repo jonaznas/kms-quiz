@@ -1,3 +1,4 @@
 export const environment = {
-  production: false
+  production: false,
+  logoUrl: 'https://i.imgur.com/9zgPi4U.png'
 };
