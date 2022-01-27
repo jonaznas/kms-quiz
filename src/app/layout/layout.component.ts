@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-layout',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
+  logoUrl: string;
 
-  constructor() { }
+  constructor() {
+    this.logoUrl = environment.logoUrl;
+  }
 
   ngOnInit(): void {
   }
