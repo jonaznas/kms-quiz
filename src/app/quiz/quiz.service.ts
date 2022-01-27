@@ -4,6 +4,7 @@ import { QuizDto } from 'src/app/quiz/quiz-dto';
 import { Observable, of } from 'rxjs';
 import { QuestionAnsweredDto } from 'src/app/quiz/question-answered-dto';
 import { QuestionDto } from 'src/app/quiz/question-dto';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class QuizService {
   }
 
   requestQuizData(): Observable<QuizDto[]> {
-    return this.http.get<QuizDto[]>(`/assets/quiz-data.json`);
+    return this.http.get<QuizDto[]>(environment.apiUrl);
   }
 
   getQuiz(id: number, quizData: QuizDto[]): Observable<QuizDto> {

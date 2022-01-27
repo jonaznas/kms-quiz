@@ -1,4 +1,6 @@
 export const environment = {
   production: true,
-  logoUrl: 'https://i.imgur.com/9zgPi4U.png'
+  logoUrl: process.env.NG_APP_LOGO_URL,
+  apiUrl: process.env.NG_APP_API_URL,
+  projectName: process.env.NG_APP_PROJECT_NAME
 };
