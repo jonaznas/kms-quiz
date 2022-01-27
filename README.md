@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/kdp1rux.gif" align="right" width="20%" />
+<img src="https://i.imgur.com/kdp1rux.gif" align="right" width="30%" />
 
 # Kms-Quiz ![GitHub](https://img.shields.io/github/license/jonaznas/kms-quiz)
 > A simple quiz web app made for mobile devices.
