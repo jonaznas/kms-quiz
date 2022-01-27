@@ -1,16 +1,37 @@
 <div class="py-5">
   <h3 class="text-lg leading-6 font-medium text-gray-900">
-    Einstellungen
+    Einstellungen und Statistiken
   </h3>
 </div>
 
-<div class="px-4">
+<div class="shadow-lg rounded-xl bg-kms-blue w-full p-6 bg-white relative overflow-hidden">
+  <p class="text-white text-xl">
+    Kurze Übersicht
+  </p>
+  <div class="flex items-center my-4 text-blue-500 rounded justify-between">
+    <span class="rounded-lg p-2 bg-white"></span>
+    <div class="flex flex-col w-full ml-2 items-start justify-evenly">
+      <p class="text-white text-lg">{{ answered }}</p>
+      <p class="text-blue-200 text-sm">
+        Fragen beantwortet
+      </p>
+    </div>
+  </div>
+  <div class="flex items-center text-blue-500 rounded justify-between">
+    <span class="rounded-lg p-2 bg-white"></span>
+    <div class="flex flex-col w-full ml-2 items-start justify-evenly">
+      <p class="text-white text-lg">{{ fails }}</p>
+      <p class="text-blue-200 text-sm">
+        Fehler insgesamt
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="flex justify-end">
   <button (click)="deleteAllData()"
-          type="submit"
-          class="w-full bg-red-600 border border-transparent rounded-md py-1 px-3 flex items-center justify-center text-base font-medium text-white">
+          type="button"
+          class="py-2 px-4 bg-red-600 text-white w-50 text-center shadow-md rounded-lg mt-5">
     Quizdaten löschen
   </button>
-  <p class="mt-1 max-w-2xl text-xs text-gray-500">
-    Löscht alle gespeicherten Antworten auf diesem Gerät.
-  </p>
 </div>

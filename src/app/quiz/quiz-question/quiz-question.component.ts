@@ -56,6 +56,7 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
       this.questionElement.nativeElement.classList.add('slide-out-blurred-left');
       setTimeout(() => this.answerSelected.emit(answer), 350);
     } else {
+      this.quizService.addFailCount();
       target.classList.add('border-2', 'border-red-500', 'shake-horizontal');
       setTimeout(() => target.classList.remove('shake-horizontal'), 800);
     }

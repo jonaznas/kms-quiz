@@ -43,6 +43,22 @@ export class QuizService {
     }
   }
 
+  addFailCount() {
+    const failCount = this.getFailedCount();
+
+    localStorage.setItem('fails', JSON.stringify(failCount + 1));
+  }
+
+  getFailedCount(): number {
+    const count = localStorage.getItem('fails');
+
+    if (count) {
+      return parseInt(count);
+    } else {
+      return 0;
+    }
+  }
+
   getStorageData(): QuestionAnsweredDto[] {
     const answers = localStorage.getItem('answers');
 
@@ -55,5 +71,6 @@ export class QuizService {
 
   deleteStorageData(): void {
     localStorage.removeItem('answers');
+    localStorage.removeItem('fails');
   }
 }
