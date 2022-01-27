@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from 'src/app/quiz/quiz.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-settings',
@@ -11,7 +12,8 @@ export class SettingsComponent implements OnInit {
   fails: number;
 
   constructor(
-    private quizService: QuizService
+    private quizService: QuizService,
+    private router: Router
   ) {
     this.answered = 0;
     this.fails = 0;
@@ -20,12 +22,5 @@ export class SettingsComponent implements OnInit {
   ngOnInit(): void {
     this.answered = this.quizService.getStorageData().length;
     this.fails = this.quizService.getFailedCount();
-  }
-
-  deleteAllData(): void {
-    this.quizService.deleteStorageData();
-
-    this.answered = 0;
-    this.fails = 0;
   }
 }

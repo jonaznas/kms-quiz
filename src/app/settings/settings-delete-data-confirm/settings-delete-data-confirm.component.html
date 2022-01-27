@@ -1,0 +1,24 @@
+<div class="p-4">
+  <div class="w-full h-full text-center">
+    <div class="flex h-full flex-col justify-between">
+      <p class="text-gray-800 text-xl font-bold mt-4">
+        Quizdaten löschen
+      </p>
+      <p class="text-gray-600 text-md py-2 px-6">
+        Es werden alle Antworten gelöscht und du musst die Quizzes neu machen.
+      </p>
+      <div class="flex items-center justify-between gap-4 w-full mt-8">
+        <button (click)="deleteAllData()"
+                type="button"
+                class="py-2 px-4 bg-red-600 text-white w-full text-center text-base font-semibold shadow-md rounded-lg ">
+          Löschen
+        </button>
+        <button routerLink="/settings"
+                type="button"
+                class="py-2 px-4 bg-white text-indigo-500 text-white w-full text-center shadow-md rounded-lg">
+          Abbrechen
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
