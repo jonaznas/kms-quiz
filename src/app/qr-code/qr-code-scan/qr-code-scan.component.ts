@@ -1,6 +1,6 @@
 import {
   Component,
-  ElementRef,
+  ElementRef, EmbeddedViewRef,
   EventEmitter,
   OnInit,
   Output,
@@ -19,6 +19,7 @@ export class QrCodeScanComponent implements OnInit {
   allowedFormats: BarcodeFormat[];
   errorMessage: string;
   showCamera: boolean;
+  errorEmbeddedView: EmbeddedViewRef<any>;
 
   @Output() qrCodeScanned = new EventEmitter<string>();
 
@@ -52,8 +53,12 @@ export class QrCodeScanComponent implements OnInit {
   }
 
   private setErrorMessage(errorMessage: string) {
+    if(this.errorEmbeddedView) {
+      this.errorEmbeddedView.destroy();
+    }
+
     this.showCamera = false;
     this.errorMessage = errorMessage;
-    this.viewContainerRef.createEmbeddedView(this.errorTemplate);
+    this.errorEmbeddedView = this.viewContainerRef.createEmbeddedView(this.errorTemplate);
   }
 }
