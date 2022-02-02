@@ -7,6 +7,9 @@ import { QuizItemComponent } from 'src/app/quiz/quiz-item/quiz-item.component';
 import { SettingsComponent } from 'src/app/settings/settings.component';
 import { QuizDataResolver } from 'src/app/quiz/quiz-data.resolver';
 import { QrCodeComponent } from 'src/app/qr-code/qr-code.component';
+import {
+  SettingsDeleteDataConfirmComponent
+} from 'src/app/settings/settings-delete-data-confirm/settings-delete-data-confirm.component';
 
 const routes: Routes = [
   {
@@ -16,6 +19,10 @@ const routes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent
+  },
+  {
+    path: 'settings/delete-all',
+    component: SettingsDeleteDataConfirmComponent
   },
   {
     path: 'quiz/:id',
