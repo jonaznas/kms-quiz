@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { QuestionAnsweredDto } from 'src/app/quiz/question-answered-dto';
 import { QuestionDto } from 'src/app/quiz/question-dto';
 import { environment } from 'src/environments/environment';
+import { addSeconds } from 'date-fns';
 
 @Injectable({
   providedIn: 'root'
@@ -28,11 +29,13 @@ export class QuizService {
     }
   }
 
-  addAnswerToStorage(quiz: QuizDto, question: QuestionDto) {
+  addAnswerToStorage(quiz: QuizDto, question: QuestionDto, score: number, fails: number): void {
     const storageData = this.getStorageData();
     const questionAnswered: QuestionAnsweredDto = {
       quizId: quiz.id,
-      questionId: question.id
+      questionId: question.id,
+      score: score,
+      fails: fails
     };
 
     const existingAnsweredQuestion = storageData.find(s => s.questionId === question.id && s.quizId === quiz.id);
@@ -72,5 +75,17 @@ export class QuizService {
   deleteStorageData(): void {
     localStorage.removeItem('answers');
     localStorage.removeItem('fails');
+  }
+
+  calculateSingleScore(startTime: number, answeredTime: number, fails: number): number {
+    const timeLimit = addSeconds(startTime, 45).getTime();
+    const timeScore = 100 * (1 - (answeredTime - startTime) / (timeLimit - startTime));
+    const totalScore = Math.round(timeScore / (1 + fails));
+
+    if(totalScore < 0) {
+      return 0;
+    } else {
+      return totalScore;
+    }
   }
 }

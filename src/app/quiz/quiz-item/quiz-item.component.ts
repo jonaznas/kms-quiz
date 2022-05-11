@@ -46,4 +46,17 @@ export class QuizItemComponent implements OnInit {
     this.currentQuestion = this.quiz.questions.length - this.questions.length;
     this.progress = (this.currentQuestion / this.quiz.questions.length) * 100;
   }
+
+  getTotalScore() {
+    let totalScore = 0;
+    const quizData =  this.quizService.getStorageData()
+
+    quizData.filter(q => q.quizId === this.quiz.id).forEach(q => {
+      if(q.score) {
+        totalScore = totalScore + q.score
+      }
+    });
+
+    return totalScore / this.quiz.questions.length;
+  }
 }

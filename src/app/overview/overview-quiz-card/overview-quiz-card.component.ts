@@ -10,6 +10,8 @@ import { QuizService } from 'src/app/quiz/quiz.service';
 export class OverviewQuizCardComponent implements OnInit {
   progress: number;
   answeredQuestions: number;
+  totalScore: number = 0;
+  totalFails: number = 1;
 
   @Input() quiz: QuizDto;
 
@@ -24,7 +26,15 @@ export class OverviewQuizCardComponent implements OnInit {
     const answeredQuestions = quizData.filter(q => q.quizId === this.quiz.id);
 
     this.answeredQuestions = answeredQuestions.length;
-    this.updateProgress()
+    this.updateProgress();
+
+    quizData.filter(q => q.quizId === this.quiz.id).forEach(q => {
+      if(q.score) {
+        this.totalScore = this.totalScore + q.score
+      }
+    });
+
+    this.totalScore = this.totalScore / this.answeredQuestions;
   }
 
   updateProgress() {

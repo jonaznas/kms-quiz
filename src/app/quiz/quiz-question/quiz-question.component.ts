@@ -21,6 +21,11 @@ import { QuizDto } from 'src/app/quiz/quiz-dto';
 })
 export class QuizQuestionComponent implements OnInit, OnChanges {
 
+  startTime: number;
+  timeEnd: number;
+  score: number;
+  fails: number = 0;
+
   @Input() question: QuestionDto;
   @Input() quiz: QuizDto;
 
@@ -34,6 +39,7 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    this.startTime = Date.now();
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -50,12 +56,19 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
 
   answer(answer: AnswerDto, e: MouseEvent): void {
     const target = e.target as HTMLButtonElement;
+    this.timeEnd = Date.now();
 
     if (answer.isCorrect) {
-      this.quizService.addAnswerToStorage(this.quiz, this.question);
+      this.score = this.quizService.calculateSingleScore(this.startTime, this.timeEnd, this.fails)
+
+      this.fails = 0;
+      this.startTime = Date.now()
+
+      this.quizService.addAnswerToStorage(this.quiz, this.question, this.score, this.fails);
       this.questionElement.nativeElement.classList.add('slide-out-blurred-left');
       setTimeout(() => this.answerSelected.emit(answer), 350);
     } else {
+      this.fails++;
       this.quizService.addFailCount();
       target.classList.add('border-2', 'border-red-500', 'shake-horizontal');
       setTimeout(() => target.classList.remove('shake-horizontal'), 800);

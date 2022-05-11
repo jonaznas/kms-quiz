@@ -11,6 +11,9 @@
     <p class="text-gray-300 text-sm">
       {{ answeredQuestions }}/{{ quiz.questions.length }} Fragen beantwortet
     </p>
+    <p *ngIf="totalScore" class="text-right text-kms-blue">
+      {{ totalScore }}
+    </p>
   </div>
   <div class="w-full h-2 bg-gray-200 rounded-full">
     <div [style]="{width: progress + '%'}" class="text-center h-full text-xs text-white bg-kms-blue rounded-full"></div>

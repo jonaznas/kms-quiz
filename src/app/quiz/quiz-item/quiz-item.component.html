@@ -16,7 +16,7 @@
   ></app-quiz-question>
 
   <ng-template #quizSuccess>
-    <app-quiz-success></app-quiz-success>
+    <app-quiz-success [score]="getTotalScore()"></app-quiz-success>
   </ng-template>
 
 </div>
