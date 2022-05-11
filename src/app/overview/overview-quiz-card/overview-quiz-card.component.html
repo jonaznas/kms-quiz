@@ -12,7 +12,7 @@
       {{ answeredQuestions }}/{{ quiz.questions.length }} Fragen beantwortet
     </p>
     <p *ngIf="totalScore" class="text-right text-kms-blue">
-      {{ totalScore }}
+      {{ totalScore | number: '1.0-0' }}
     </p>
   </div>
   <div class="w-full h-2 bg-gray-200 rounded-full">
