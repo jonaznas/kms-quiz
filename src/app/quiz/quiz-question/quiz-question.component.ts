@@ -25,6 +25,7 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
   timeEnd: number;
   score: number;
   fails: number = 0;
+  picture: string | null;
 
   @Input() question: QuestionDto;
   @Input() quiz: QuizDto;
@@ -40,6 +41,7 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.startTime = Date.now();
+    this.setPictureIfAvailable();
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -48,6 +50,7 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
       this.questionElement.nativeElement.classList.add('slide-out-blurred-left');
 
       setTimeout(() => {
+        this.setPictureIfAvailable();
         this.questionElement.nativeElement.classList.remove('slide-out-blurred-left');
         this.questionElement.nativeElement.classList.add('slide-in-blurred-top');
       }, 350);
@@ -72,6 +75,14 @@ export class QuizQuestionComponent implements OnInit, OnChanges {
       this.quizService.addFailCount();
       target.classList.add('border-2', 'border-red-500', 'shake-horizontal');
       setTimeout(() => target.classList.remove('shake-horizontal'), 800);
+    }
+  }
+
+  setPictureIfAvailable() {
+    if(this.question.pictureBase64) {
+      this.picture = this.question.pictureBase64;
+    } else {
+      this.picture = null;
     }
   }
 }

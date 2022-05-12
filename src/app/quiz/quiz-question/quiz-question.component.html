@@ -1,4 +1,8 @@
 <div #questionElement class="slide-in-blurred-right">
+  <div *ngIf="picture" class="flex justify-center">
+    <img [src]="picture" alt="question-picture" class="shadow-lg rounded-xl w-52 mt-5">
+  </div>
+
   <div class="my-5">{{ question.question }}</div>
 
   <div>
