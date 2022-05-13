@@ -1,17 +1,17 @@
 <div class="w-full">
   <section class="block fixed inset-x-0 bottom-0 z-10 bg-white shadow">
     <div id="tabs" class="flex justify-between">
-      <a routerLink="overview" class="w-full justify-center inline-block text-center pt-2 pb-1">
+      <a (click)="scrollUp()" routerLink="overview" class="w-full justify-center inline-block text-center pt-2 pb-1">
         <i-tabler name="home"></i-tabler>
         <span class="block text-xs">Übersicht</span>
       </a>
-      <a routerLink="qr-code" class="w-full justify-center inline-block text-center pt-2 pb-1">
+      <a (click)="scrollUp()" routerLink="qr-code" class="w-full justify-center inline-block text-center pt-2 pb-1">
         <i-tabler name="camera"></i-tabler>
         <span class="block text-xs">QR-Code</span>
       </a>
-      <a routerLink="settings" class="w-full justify-center inline-block text-center pt-2 pb-1">
+      <a (click)="scrollUp()" routerLink="settings" class="w-full justify-center inline-block text-center pt-2 pb-1">
         <i-tabler name="adjustments"></i-tabler>
-        <span class="block text-xs">Einstellungen</span>
+        <span class="block text-xs">Statistiken</span>
       </a>
     </div>
   </section>

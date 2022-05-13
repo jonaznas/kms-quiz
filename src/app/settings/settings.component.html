@@ -1,26 +1,29 @@
 <div class="py-5">
   <h3 class="text-lg leading-6 font-medium text-gray-900">
-    Einstellungen und Statistiken
+    Statistiken
   </h3>
 </div>
 
+<div class="shadow-lg rounded-xl w-full mb-10 bg-white relative border border-kms-blue overflow-hidden">
+  <div class="flex flex-col items-center border-b border-kms-blue p-6">
+    <p class="text-kms-blue text-underline text-7xl">{{ totalScore | number: '1.0-0' }}</p>
+    <p class="text-gray-800 text-md">Dein gesammter Score</p>
+  </div>
+  <div class="flex flex-col items-center px-6 py-3">
+    <h6 class="text-gray-800 score-desc">Der Score wird aus der Zeit und der Anzahl der Fehler berechnet. Höher ist besser.</h6>
+  </div>
+</div>
+
 <div class="shadow-lg rounded-xl bg-kms-blue w-full p-6 bg-white relative overflow-hidden">
-  <p class="text-white text-xl">
-    Kurze Übersicht
-  </p>
   <div class="flex items-center my-4 text-blue-500 rounded justify-between">
-    <span class="rounded-lg p-2 bg-white"></span>
-    <div class="flex flex-col w-full ml-2 items-start justify-evenly">
-      <p class="text-white text-lg">{{ answered }}</p>
+    <div class="flex flex-col w-full ml-2 items-center justify-evenly">
+      <p class="text-white text-4xl">{{ answered }}</p>
       <p class="text-blue-200 text-sm">
         Fragen beantwortet
       </p>
     </div>
-  </div>
-  <div class="flex items-center text-blue-500 rounded justify-between">
-    <span class="rounded-lg p-2 bg-white"></span>
-    <div class="flex flex-col w-full ml-2 items-start justify-evenly">
-      <p class="text-white text-lg">{{ fails }}</p>
+    <div class="flex flex-col w-full ml-2 items-center justify-evenly">
+      <p class="text-white text-4xl">{{ fails }}</p>
       <p class="text-blue-200 text-sm">
         Fehler insgesamt
       </p>

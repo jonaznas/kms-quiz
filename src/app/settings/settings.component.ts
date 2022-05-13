@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from 'src/app/quiz/quiz.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-settings',
@@ -10,10 +9,10 @@ import { Router } from '@angular/router';
 export class SettingsComponent implements OnInit {
   answered: number;
   fails: number;
+  totalScore: number = 0;
 
   constructor(
-    private quizService: QuizService,
-    private router: Router
+    private quizService: QuizService
   ) {
     this.answered = 0;
     this.fails = 0;
@@ -22,5 +21,12 @@ export class SettingsComponent implements OnInit {
   ngOnInit(): void {
     this.answered = this.quizService.getStorageData().length;
     this.fails = this.quizService.getFailedCount();
+    this.setTotalScore();
+  }
+
+  setTotalScore() {
+    this.quizService.getStorageData().forEach(element => {
+      this.totalScore += element.score;
+    });
   }
 }
