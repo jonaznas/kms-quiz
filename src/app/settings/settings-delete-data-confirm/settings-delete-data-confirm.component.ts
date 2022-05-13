@@ -20,6 +20,6 @@ export class SettingsDeleteDataConfirmComponent implements OnInit {
 
   async deleteAllData() {
     this.quizService.deleteStorageData();
-    await this.router.navigate(['/settings']);
+    await this.router.navigate(['/results']);
   }
 }

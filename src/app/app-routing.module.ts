@@ -17,11 +17,11 @@ const routes: Routes = [
     component: OverviewComponent
   },
   {
-    path: 'settings',
+    path: 'results',
     component: SettingsComponent
   },
   {
-    path: 'settings/delete-all',
+    path: 'results/reset',
     component: SettingsDeleteDataConfirmComponent
   },
   {
