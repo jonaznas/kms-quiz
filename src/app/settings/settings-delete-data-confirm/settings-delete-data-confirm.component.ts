@@ -15,6 +15,7 @@ export class SettingsDeleteDataConfirmComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
   }
 
   async deleteAllData() {
